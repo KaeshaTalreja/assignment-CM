@@ -1,11 +1,11 @@
 from tkinter import *
 import tkinter.font as tkFont
 
-colorBG='brown'
+colorBG='grey'
 txtBG='cyan'
 main_window=Tk()
 main_window.title("My Slambook")
-main_window.geometry("1200x900")
+main_window.geometry("1000x900")
 main_window.configure(bg=colorBG)
 
 cursive = tkFont.Font(family="Brush Script MT",size=24)
@@ -94,8 +94,8 @@ lblColorSmell.grid(row=16,column=0)
 txtColorSmell = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
 txtColorSmell.grid(row=16,column=1)
 
-lblQuarantineFavs=Label(main_window,text="This or that??",fg='lime',bg=colorBG,font=heading,justify='center')
-lblQuarantineFavs.grid(row=4,column=4)
+lblQuarantineFavs=Label(main_window,text="This or that??",fg='lime',bg=colorBG,font=heading)
+lblQuarantineFavs.grid(row=4,column=4,columnspan=2)
 
 lbl=Label(main_window,text='ABC',fg=colorBG,bg=colorBG)
 lbl.grid(row=4,column=3)
@@ -150,46 +150,46 @@ R16 = Radiobutton(main_window, text="Cats", variable=var8, value=2,fg='orange',b
 R16.grid(row=12,column=5,sticky='w')
 
 lbl=Label(main_window,text="Get to know me...",fg='lime',bg=colorBG,font=heading)
-lbl.grid(row=2,column=6,columnspan=2)
+lbl.grid(row=2,column=7,columnspan=2)
 
 
 lbl=Label(main_window,text='ABC',fg=colorBG,bg=colorBG)
-lbl.grid(row=3,column=5)
+lbl.grid(row=3,column=6)
 
 lblAboutYourself = Label(main_window, text="Tell us a bit about yourself",fg='orange',bg=colorBG,font=cursive)
-lblAboutYourself.grid(row=3,column=6)
+lblAboutYourself.grid(row=3,column=8)
 txtAboutYourself = Entry(main_window, fg=txtBG,bg=colorBG,font=box,borderwidth=0)
-txtAboutYourself.grid(row=4,column=6)
+txtAboutYourself.grid(row=4,column=8)
 
 lblBucks = Label(main_window, text="What would you do with a billion bucks?",fg='orange',bg=colorBG,font=cursive)
-lblBucks.grid(row=5,column=6)
+lblBucks.grid(row=5,column=8)
 txtBucks = Entry(main_window,fg=txtBG,bg=colorBG,font=box)
-txtBucks.grid(row=6,column=6)
+txtBucks.grid(row=6,column=8)
 
 lblSoulmate = Label(main_window, text="Do you believe in soulmate?",fg='orange',bg=colorBG,font=cursive)
-lblSoulmate.grid(row=7,column=6)
+lblSoulmate.grid(row=7,column=8)
 txtSoulmate = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtSoulmate.grid(row=8,column=6)
+txtSoulmate.grid(row=8,column=8)
 
 lblAdvice = Label(main_window, text="What's one piece of advice you'd give?",fg='orange',bg=colorBG,font=cursive)
-lblAdvice.grid(row=9,column=6)
+lblAdvice.grid(row=9,column=8)
 txtAdvice = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtAdvice.grid(row=10,column=6)
+txtAdvice.grid(row=10,column=8)
 
 lblLockdown = Label(main_window, text="Three things you will do after lockdown..",fg='orange',bg=colorBG,font=cursive)
-lblLockdown.grid(row=11,column=6)
+lblLockdown.grid(row=11,column=8)
 txtLockdown = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtLockdown.grid(row=12,column=6)
+txtLockdown.grid(row=12,column=8)
 
 lblHonest = Label(main_window, text="How honest do you think I am?",fg='orange',bg=colorBG,font=cursive)
-lblHonest.grid(row=13,column=6)
+lblHonest.grid(row=13,column=8)
 sbHonest = Spinbox(main_window, from_=0, to=10,fg=txtBG,bg=colorBG,font=cursive)
-sbHonest.grid(row=14,column=6)
+sbHonest.grid(row=14,column=8)
 
 lblDressing = Label(main_window, text="Scale my way of styling..",fg='orange',bg=colorBG,font=cursive)
-lblDressing.grid(row=15,column=6)
+lblDressing.grid(row=15,column=8)
 var = DoubleVar()
 scaleDressing = Scale( main_window, variable = var,orient=HORIZONTAL,fg=txtBG,bg=colorBG,font=cursive)
-scaleDressing.grid(row=16,column=6)
+scaleDressing.grid(row=16,column=8)
 
 main_window.mainloop()
