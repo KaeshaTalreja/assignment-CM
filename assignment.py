@@ -1,15 +1,43 @@
+#pip install numpy
+#pip install pyautogui
+#pip install opencv-python
+#pip install Pillow
+
 from tkinter import *
 import tkinter.font as tkFont
+from tkinter import messagebox
+
+import numpy as np
+import cv2
+import pyautogui
+import random
+
+def snapshot():
+    # take screenshot using pyautogui
+    img = pyautogui.screenshot()
+    
+    # since the pyautogui takes as a 
+    # PIL(pillow) and in RGB we need to 
+    # convert it to numpy array and BGR 
+    # so we can write it to the disk
+    imge = cv2.cvtColor(np.array(img),cv2.COLOR_RGB2BGR)
+    number =random.randrange(0, 1000, 3)
+    # writing it to the disk using opencv
+    cv2.imwrite("slambook_image"+str(number)+".png", imge)
+    messagebox.showinfo("showinfo", "Information")
+
+
 
 colorBG='grey'
 txtBG='cyan'
 main_window=Tk()
 main_window.title("My Slambook")
-main_window.geometry("1000x900")
+main_window.attributes('-fullscreen',True)
+#main_window.geometry("1000x900")
 main_window.configure(bg=colorBG)
 
 cursive = tkFont.Font(family="Brush Script MT",size=24)
-heading=tkFont.Font(family="Garamond",size=30,weight="bold")
+heading=tkFont.Font(family="Comic Sans MS",size=30,weight="bold")
 box= tkFont.Font(family="Calibri",size=20)
 
 
@@ -19,23 +47,23 @@ box= tkFont.Font(family="Calibri",size=20)
 #canvas.create_image(0,0, anchor=NW, image=img)   
 
 lblHeading = Label(main_window, text="All About you",font=heading,fg='lime',bg=colorBG)
-lblHeading.grid(row=0,column=0,columnspan=2)
+lblHeading.grid(row=1,column=0,columnspan=2)
 
 lblName = Label(main_window, text="Name:",font=cursive,fg='orange',bg=colorBG)
-lblName.grid(row=1,column=0)
+lblName.grid(row=2,column=0)
 txtName = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtName.grid(row=1,column=1)
+txtName.grid(row=2,column=1)
 
 lblNickname = Label(main_window, text="Nickname:",fg='orange',bg=colorBG,font=cursive)
-lblNickname.grid(row=2,column=0)
+lblNickname.grid(row=3,column=0)
 txtNickname = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtNickname.grid(row=2,column=1)
+txtNickname.grid(row=3,column=1)
 
 
 lblPronoun = Label(main_window, text="Pronoun:",fg='orange',bg=colorBG,font=cursive)
-lblPronoun.grid(row=3,column=0)
+lblPronoun.grid(row=4,column=0)
 txtPronoun = Entry(main_window, bd =0,fg=txtBG,bg=colorBG,font=box)
-txtPronoun.grid(row=3,column=1)
+txtPronoun.grid(row=4,column=1)
 
 
 lblQuarantineFavs=Label(main_window,text="Quarantine Favs",fg='lime',bg=colorBG,font=heading)
@@ -191,5 +219,12 @@ lblDressing.grid(row=15,column=8)
 var = DoubleVar()
 scaleDressing = Scale( main_window, variable = var,orient=HORIZONTAL,fg=txtBG,bg=colorBG,font=cursive)
 scaleDressing.grid(row=16,column=8)
+
+btnSubmit=Button(main_window,text="Send",bg=colorBG,fg=colorBG,bd=0,font=cursive,relief='raised',command=snapshot)
+btnSubmit.grid(row=16,column=5,sticky='W')
+
+btnExit = Button(main_window, text="Exit", command=main_window.destroy)
+btnExit.grid(row=17,column=5)
+
 
 main_window.mainloop()
